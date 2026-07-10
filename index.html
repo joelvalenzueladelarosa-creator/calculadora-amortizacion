@@ -385,7 +385,7 @@
     }
     if (vigente > desembolsado) {
       banner.className = 'banner ineligible';
-      banner.textContent = '⚠️ El capital vigente no puede ser mayor al desembolsado.';
+      banner.textContent = '⚠ El capital vigente no puede ser mayor al desembolsado.';
       resAm.textContent = resPct.textContent = resFalt.textContent = '—';
       resMontoFalt.textContent = '';
       lastResult = null;
@@ -410,10 +410,10 @@
 
     if (elegible) {
       banner.className = 'banner eligible';
-      banner.textContent = ✅ Elegible para renovar — ${fmt(pctAmort)}% amortizado (mín. ${minPct}%);
+      banner.textContent = `✅ Elegible para renovar — ${fmt(pctAmort)}% amortizado (mín. ${minPct}%)`;
     } else {
       banner.className = 'banner ineligible';
-      banner.textContent = ❌ No elegible aún — falta amortizar ${fmt(faltante)}% más;
+      banner.textContent = `❌ No elegible aún — falta amortizar ${fmt(faltante)}% más`;
     }
 
     lastResult = { tipo, desembolsado, vigente, amortizado, pctAmort, faltante, montoFaltante, elegible, minPct };
@@ -467,7 +467,7 @@
           <div class="hi-stat">Desembolsado: <span>${fmtMoney(h.desembolsado)}</span></div>
           <div class="hi-stat">Vigente: <span>${fmtMoney(h.vigente)}</span></div>
           <div class="hi-stat">Amortizado: <span>${fmtMoney(h.amortizado)}</span></div>
-          ${h.faltante > 0 ? <div class="hi-stat">Faltante: <span>${fmt(h.faltante)}% (${fmtMoney(h.montoFaltante || 0)})</span></div> : ''}
+          ${h.faltante > 0 ? `<div class="hi-stat">Faltante: <span>${fmt(h.faltante)}% (${fmtMoney(h.montoFaltante || 0)})</span></div>` : ''}
         </div>
         <div class="hi-date">${fmtDate(h.fecha)} · ${h.elegible ? '✅ Elegible' : '❌ No elegible'}</div>
       </div>
